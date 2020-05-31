@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(email: email_params[:email])
-   if user && user.authenticate(password_params[:password])
+    if user && user.authenticate(password_params[:password])
       log_in user
       redirect_to root_path, success: 'ログインに成功しました'
     else
